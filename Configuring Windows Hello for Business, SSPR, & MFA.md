@@ -65,9 +65,8 @@ This is needed only if you use on-prem Active Directory.
 1. Azure AD Password Protection Proxy Service
 2. Domain Controller Agent 
 
-</details>
-
 ---
+</details>
 
 ## Windows Hello for Business
 Windows Hello is Microsoft’s modern authentication system that replaces passwords with more secure and convenient methods such as biometrics (face, fingerprint) or PIN.
@@ -137,9 +136,8 @@ Windows Hello is Microsoft’s modern authentication system that replaces passwo
 > - **Credential Guard**: Prevents attackers from using tools like Mimikatz to steal passwords from memory even if they get admin access to the device.
 > - **Facial Features Use Enhanced Anti-Spoofing**: Stops someone from unlocking a device by holding up a photo or video of the user's face during Windows Hello sign-in.
 
-</details>
-
 ---
+</details>
 
 ## Self-Service Password Reset (SSPR)
 
@@ -162,7 +160,8 @@ For hybrid environments:
 - Enable **Password Writeback**
 - This allows SSPR changes from the cloud to update the **on-prem Active Directory**
 
-### Configure SSPR in Entra (Azure AD)
+<details><summary><h4>Configure SSPR in Entra ID</h4></summary>
+
 1. Navigate to: `Entra ID → Password Reset`
 2. Choose who can use SSPR
    - All
@@ -173,6 +172,7 @@ For hybrid environments:
    - Enable password writeback (for hybrid AD)
 
 ---
+</details>
 
 ## Multi-Factor Authentication (MFA)
 **MFA** (Multi-Factor Authentication) is a security method that requires two or more verification factors before allowing a user to sign in.
@@ -194,7 +194,7 @@ When a user signs in:
    - FIDO2 Security Keys
    - Windows Hello for Business
    - Temporary Access Pass
-  
+
 <details><summary><h4>Configure MFA in Entra ID</h4></summary>
 There are three ways to enforce MFA, but Microsoft recommends using Conditional Access, not the legacy MFA portal.
 
@@ -214,8 +214,6 @@ The most flexible and secure way to enforce MFA.
 
 **Use Case:** Enterprise environments, Zero Trust, selective MFA requirements.
 
----
-
 ## **Method 2: Authentication Methods Policy**
 
 Controls which MFA methods users are allowed to use. Does *not* force MFA by itself.
@@ -231,8 +229,6 @@ Controls which MFA methods users are allowed to use. Does *not* force MFA by its
 3. Assign to users/groups
 
 **Use Case:** Modern passwordless configurations, controlling MFA method availability.
-
----
 
 ## **Method 3: Security Defaults (Basic & Simplest)**
 
@@ -251,5 +247,4 @@ This automatically:
 **Use Case:** Small tenants, no Conditional Access needed, quick security hardening.
 
 ---
-
 </details>
