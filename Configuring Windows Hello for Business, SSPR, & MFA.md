@@ -36,7 +36,8 @@ When a user changes or resets a password:
 4. Only strong passwords are accepted.
 > No actual password ever leaves the device—Microsoft only receives a hashed evaluation of password “components”.
 
-#### Configure Password Protection
+<details><summary><h4>Configure Password Protection</h4></summary>
+
 #### Step 1 — Go to Password Protection Settings
 1. Sign in to Entra Admin Center
 2. Navigate to: Protection → Authentication methods → Password protection
@@ -63,6 +64,8 @@ This is needed only if you use on-prem Active Directory.
 **You must deploy:**
 1. Azure AD Password Protection Proxy Service
 2. Domain Controller Agent 
+
+</details>
 
 ---
 
