@@ -85,11 +85,6 @@ Windows Hello is Microsoft’s modern authentication system that replaces passwo
   - A password can be stolen remotely.
   - A Windows Hello key cannot.
     > Even if hackers breach a database, they don’t get your biometric data or PIN because they are stored locally and cryptographically protected.
-- **Supports Multi-Factor Authentication (MFA)**
-  - Windows Hello =
-    - Something you ARE (biometric) + something you HAVE (device)
-    - Something you KNOW (PIN) + something you HAVE (device)
-      > So MFA is built-in without extra steps.
 - **Enterprise Ready**
   - Zero Trust authentication
   - Passwordless deployments
@@ -177,4 +172,82 @@ For hybrid environments:
 4. On-premises integration
    - Enable password writeback (for hybrid AD)
 
-## What Is Entra ID Password Protection  
+## Multi-Factor Authentication (MFA)
+**MFA** (Multi-Factor Authentication) is a security method that requires two or more verification factors before allowing a user to sign in.
+It combines:
+- **Something you know** → password
+- **Something you have** → phone, hardware key, authenticator app
+- **Something you are** → fingerprint, face (biometrics)
+  > This prevents attackers from accessing accounts even if they steal the password.
+
+### How MFA Works in Entra ID
+When a user signs in:
+1. They enter their password
+2. Entra checks the authentication policy
+3. If MFA is required → user must provide second factor
+4. Access is granted only if both checks succeed
+5. Factors supported by Entra ID:
+   - Microsoft Authenticator App (push, code)
+   - SMS OTP
+   - FIDO2 Security Keys
+   - Windows Hello for Business
+   - Temporary Access Pass
+  
+<details><summary><h4>Configure MFA in Entra ID</h4></summary>
+There are three ways to enforce MFA, but Microsoft recommends using Conditional Access, not the legacy MFA portal.
+
+## **Method 1: Conditional Access (Recommended)**
+
+The most flexible and secure way to enforce MFA.
+
+### **Steps**
+
+1. Go to **Entra Admin Center**
+2. Navigate to **Protection → Conditional Access → Policies**
+3. Create a new policy
+4. Assign users/groups (start with a test group)
+5. Select cloud apps (all or specific)
+6. Under **Grant**, choose **Grant access → Require multi-factor authentication**
+7. Enable and save the policy
+
+**Use Case:** Enterprise environments, Zero Trust, selective MFA requirements.
+
+---
+
+## **Method 2: Authentication Methods Policy**
+
+Controls which MFA methods users are allowed to use. Does *not* force MFA by itself.
+
+### **Steps**
+
+1. Go to **Protection → Authentication Methods**
+2. Enable preferred methods:
+   * Microsoft Authenticator
+   * FIDO2 Security Keys
+   * SMS / Voice
+   * Temporary Access Pass (TAP)
+3. Assign to users/groups
+
+**Use Case:** Modern passwordless configurations, controlling MFA method availability.
+
+---
+
+## **Method 3: Security Defaults (Basic & Simplest)**
+
+One-click MFA enforcement for small organizations.
+
+### **Steps**
+
+1. Go to **Entra ID → Properties → Manage Security Defaults**
+2. Turn **ON** security defaults
+
+This automatically:
+* Enforces MFA for all users
+* Requires Microsoft Authenticator
+* Blocks legacy auth protocols
+
+**Use Case:** Small tenants, no Conditional Access needed, quick security hardening.
+
+---
+
+</details>
