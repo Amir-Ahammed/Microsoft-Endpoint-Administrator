@@ -73,25 +73,25 @@ This is needed only if you use on-prem Active Directory.
 Windows Hello is Microsoft’s modern authentication system that replaces passwords with more secure and convenient methods such as biometrics (face, fingerprint) or PIN.
 
 ### Why Use Windows Hello?
-- **Stronger Security:**
-  - Eliminates traditional passwords: Passwords are easy to steal, reuse, guess, or leak. Windows Hello removes this weakness.
-  - Uses biometric or PIN tied to the device: Your PIN/biometric never leaves the device. Even if someone steals your Microsoft account password, they cannot sign in without physical access to your device.
-  - Uses hardware-based protection: Windows Hello uses TPM (Trusted Platform Module) to securely store authentication keys. This protects against:
-- **Faster & More Convenient**
-  - Face sign-in: instant login
-  - Fingerprint: quick tap
-  - PIN: faster than typing a long password: More speed, less friction, especially in enterprise environments.
-- **Resistant to Remote Attacks**
-  - A password can be stolen remotely.
-  - A Windows Hello key cannot.
-    > Even if hackers breach a database, they don’t get your biometric data or PIN because they are stored locally and cryptographically protected.
-- **Enterprise Ready**
-  - Zero Trust authentication
-  - Passwordless deployments
-  - Reduced help desk password reset costs
-  - Better user experience
 
-<details><summary><h3>Configure Windows Hello in Intune</h></summary>
+1. It’s More Secure
+   - No traditional passwords (which can be stolen).
+   - Your fingerprint, face, or PIN stays **only on your device**, never online.
+   - Even if someone knows your Microsoft account password, they **cannot** log into your PC without your device.
+2. It’s Faster
+   - **Face sign-in** → just look at the screen
+   - **Fingerprint** → quick tap
+   - **PIN** → faster than typing a long password
+3. It Protects Against Online Attacks
+   - Passwords can be stolen from the internet.
+   - Windows Hello data (face/fingerprint/PIN) **cannot**, because it never leaves your device.
+4. It’s Great for Work
+   - Works well with **Zero Trust** security.
+   - Helps companies go passwordless.
+   - Reduces help desk password reset requests.
+   - Gives users a better, faster login experience.
+
+<details><summary><h4>Configure Windows Hello in Intune</h4></summary>
 
 1. **Navigate to**: `Intune → Endpoint security → Account protection → Create Policy`
 2. **Choose:**
@@ -171,6 +171,8 @@ For hybrid environments:
    - Use the auth methods policy to manage other authentication methods.
 4. On-premises integration
    - Enable password writeback (for hybrid AD)
+
+---
 
 ## Multi-Factor Authentication (MFA)
 **MFA** (Multi-Factor Authentication) is a security method that requires two or more verification factors before allowing a user to sign in.
