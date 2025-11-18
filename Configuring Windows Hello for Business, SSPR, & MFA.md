@@ -57,7 +57,7 @@ When a user changes or resets a password:
    - Lockout threshold (e.g., 10 failed attempts)
    - Lockout duration (e.g., 60 seconds)
 
-### Step 3 — (Optional) Configure On-Prem Password Protection
+#### Step 3 — (Optional) Configure On-Prem Password Protection
 This is needed only if you use on-prem Active Directory.
 
 **You must deploy:**
