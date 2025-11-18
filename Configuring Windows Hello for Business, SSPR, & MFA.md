@@ -1,6 +1,6 @@
 # Configuring Windows Hello for Business, SSPR, & MFA
 
-## What is Authentication Methods?
+## Authentication Methods
 Authentication methods are the different ways a user can prove their identity when signing in to Microsoft services (like Microsoft 365, Intune, Entra ID).
 
 > They act as evidence that the person signing in is really the account owner.
@@ -23,6 +23,46 @@ Authentication methods are the different ways a user can prove their identity wh
 8. **Password** - Traditional username + password.
 9. **Certificate-Based Authentication (CBA)** - User signs in using a certificate stored on the device or smart card.
 10. **Passkeys** - Modern passwordless sign-in stored on device (Windows Hello, iOS, Android).
+
+### Password Protection? 
+Microsoft Entra ID Password Protection is a security feature that prevents users from setting weak, common, or easily guessable passwords.
+> It protects against password spray, brute-force, and credential stuffing attacks.
+
+#### How It Works
+When a user changes or resets a password:
+1. Password is checked against the global banned password list.
+2. Then checked against the tenant custom banned password list.
+3. If the password is weak → blocked.
+4. Only strong passwords are accepted.
+> No actual password ever leaves the device—Microsoft only receives a hashed evaluation of password “components”.
+
+#### Configure Password Protection
+#### Step 1 — Go to Password Protection Settings
+1. Sign in to Entra Admin Center
+2. Navigate to: Protection → Authentication methods → Password protection
+#### Step 2 — Configure Cloud Password Protection
+1. Enforce custom banned password list
+   - Enable (Recommended)
+   - This forces users to avoid words you add.
+2. Custom banned password list
+   - Add up to 1000 entries (examples):
+     ```
+     companyname
+     productname
+     bangladesh123
+     admin
+     welcome
+     ```
+3. Lockout settings (Default but configurable)
+   - Lockout threshold (e.g., 10 failed attempts)
+   - Lockout duration (e.g., 60 seconds)
+
+### Step 3 — (Optional) Configure On-Prem Password Protection
+This is needed only if you use on-prem Active Directory.
+
+**You must deploy:**
+1. Azure AD Password Protection Proxy Service
+2. Domain Controller Agent 
 
 ---
 
@@ -134,4 +174,4 @@ For hybrid environments:
 4. On-premises integration
    - Enable password writeback (for hybrid AD)
 
-## What Is 
+## What Is Entra ID Password Protection  
