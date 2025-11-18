@@ -73,24 +73,24 @@ This is needed only if you use on-prem Active Directory.
 Windows Hello is Microsoft’s modern authentication system that replaces passwords with more secure and convenient methods such as biometrics (face, fingerprint) or PIN.
 
 ### Why Use Windows Hello?
-- Stronger Security:
+- **Stronger Security:**
   - Eliminates traditional passwords: Passwords are easy to steal, reuse, guess, or leak. Windows Hello removes this weakness.
   - Uses biometric or PIN tied to the device: Your PIN/biometric never leaves the device. Even if someone steals your Microsoft account password, they cannot sign in without physical access to your device.
   - Uses hardware-based protection: Windows Hello uses TPM (Trusted Platform Module) to securely store authentication keys. This protects against:
-- Faster & More Convenient
+- **Faster & More Convenient**
   - Face sign-in: instant login
   - Fingerprint: quick tap
   - PIN: faster than typing a long password: More speed, less friction, especially in enterprise environments.
-- Resistant to Remote Attacks
+- **Resistant to Remote Attacks**
   - A password can be stolen remotely.
   - A Windows Hello key cannot.
     > Even if hackers breach a database, they don’t get your biometric data or PIN because they are stored locally and cryptographically protected.
-- Supports Multi-Factor Authentication (MFA)
+- **Supports Multi-Factor Authentication (MFA)**
   - Windows Hello =
     - Something you ARE (biometric) + something you HAVE (device)
     - Something you KNOW (PIN) + something you HAVE (device)
       > So MFA is built-in without extra steps.
-- Enterprise Ready
+- **Enterprise Ready**
   - Zero Trust authentication
   - Passwordless deployments
   - Reduced help desk password reset costs
