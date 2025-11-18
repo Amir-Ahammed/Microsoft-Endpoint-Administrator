@@ -24,7 +24,7 @@ Authentication methods are the different ways a user can prove their identity wh
 9. **Certificate-Based Authentication (CBA)** - User signs in using a certificate stored on the device or smart card.
 10. **Passkeys** - Modern passwordless sign-in stored on device (Windows Hello, iOS, Android).
 
-### Password Protection? 
+### Password Protection
 Microsoft Entra ID Password Protection is a security feature that prevents users from setting weak, common, or easily guessable passwords.
 > It protects against password spray, brute-force, and credential stuffing attacks.
 
